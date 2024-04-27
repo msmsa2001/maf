@@ -63,7 +63,13 @@
                     <div id="amt-head2">Amount</div>
                     <div id="input"><input type="number" id="amt-input" placeholder="500"></div>
                 </div>
-                <div id="button-div"><button id="donate-btn">DONATE NOW</button></div>
+                <div id="button-div">
+                    <button id="donate-btn">DONATE NOW</button>
+                  </div>
+                  <div class="modal-background" id="modalBg">
+                    <span class="close-btn">&times;</span>
+                    <img src="scanner.png" id="donate-image" alt="Donate Image">
+                  </div>
             </div>
         </div>
         <img id="donate-img" src="person-holding-jar-with-coins 1.png" alt="">
@@ -131,10 +137,10 @@
               <div class="menu">Menu</div>
             </div>
             <div class="footer-content-row1">
-              <div>About</div>
-              <div>Organization</div>
-              <div>Organization</div>
-              <div>Events</div>
+              <a href="About page/about.html"><div>About</div></a>
+             <a href="OurTeam page/team.html"><div>Our Team</div></a>
+             <a href="ContactUs page/contact.html"><div>Contact Us</div></a>
+              <a href="donate.html"><div>Donate Now</div></a>
             </div>
           </div>
           <div class="footer-content-column2">
@@ -159,9 +165,9 @@
             <div class="follow-news">
               <div id="follow-news">Follow our news</div>
               <div class="svgs">
-                <img src="assets/Vector (1).svg" alt="">
-                <img id="middle-svg" src="assets/in.svg.svg" alt="">
-                <img src="assets/Vector.svg" alt="">
+                <a href=""> <img src="Vector (1).svg" alt=""></a>
+                <a href="https://www.linkedin.com/company/mission-awareness-foundation/"><img id="middle-svg" src="in.svg.svg" alt=""></a>
+                 <a href="https://www.instagram.com/mission_awareness/"><img src="Vector.svg" alt=""></a>
               </div>
             </div>
   
@@ -178,25 +184,67 @@
   
     <!-- Footer ends  -->
   
-
-
-
     <!-- javascript code for navbar starts  -->
     <script>
-        const toggleBtn = document.querySelector(".toggle-btn")
-        const toggleBtnIcon = document.querySelector(".toggle-btn i")
-        const dropdownMenu = document.querySelector(".dropdown-menu")
-
-        toggleBtn.onclick = function () {
-            dropdownMenu.classList.toggle("display")
-
-            const isDisplay = dropdownMenu.classList.contains("display")
-            toggleBtnIcon.classList = isDisplay ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
-
-        }
-
-    </script>
+      const toggleBtn = document.querySelector(".toggle-btn");
+      const toggleBtnIcon = document.querySelector(".toggle-btn i");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
+      const menuItems = document.querySelectorAll(".dropdown-menu li a");
+  
+      function closeDropdown() {
+          dropdownMenu.classList.remove("display");
+          toggleBtnIcon.classList = 'fa-solid fa-bars';
+      }
+  
+      toggleBtn.onclick = function () {
+          dropdownMenu.classList.toggle("display");
+          const isDisplay = dropdownMenu.classList.contains("display");
+          toggleBtnIcon.classList = isDisplay ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      }
+  
+      menuItems.forEach(item => {
+          item.addEventListener("click", function () {
+              closeDropdown();
+          });
+      });
+  
+      document.addEventListener("click", function (event) {
+          if (!event.target.closest(".dropdown-menu") && !event.target.closest(".toggle-btn")) {
+              closeDropdown();
+          }
+      });
+  
+      dropdownMenu.addEventListener("click", function (event) {
+          event.stopPropagation();
+      });
+  </script>
     <!-- javascript code for navbar ends  -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const donateBtn = document.getElementById("donate-btn");
+          const modalBg = document.getElementById("modalBg");
+          const donateImage = document.getElementById("donate-image");
+          const closeBtn = document.querySelector(".close-btn");
+    
+          donateBtn.addEventListener("click", function() {
+            modalBg.style.display = "block"; 
+            donateImage.style.display = "block"; 
+          });
+    
+          closeBtn.addEventListener("click", function() {
+            modalBg.style.display = "none"; 
+            donateImage.style.display = "none"; 
+          });
+    
+          modalBg.addEventListener("click", function(event) {
+            if (event.target === modalBg) {
+              modalBg.style.display = "none"; 
+              donateImage.style.display = "none";
+            }
+          });
+        });
+      </script>
 
 
 </body>

@@ -84,7 +84,7 @@ nav .toggle-btn {
     display: none;
     position: absolute;
     right: 2rem;
-    top: 120px;
+    top: 100px;
     width: 300px;
     background-color: #d3d3d3;
     backdrop-filter: blur(15px);
@@ -94,7 +94,7 @@ nav .toggle-btn {
 }
 
 .dropdown-menu.display {
-    height: 300px;
+    height: 250px;
 }
 
 .dropdown-menu li {
@@ -734,14 +734,19 @@ nav .toggle-btn {
     margin-left: 5px;
     margin-top: 2px;
 }
-
-.footer-content-row1 {
+.footer-content-row1{
+    margin-top: 27px;
+}
+.footer-content-row1{
+    margin-top: 27px;
+}
+.footer-content-row1 a{
     color: #fff;
     font-size: 14px;
     font-weight: 500;
     line-height: 25px;
-    margin-top: 27px;
-
+text-decoration: none;
+cursor: pointer;
 }
 
 #response {
@@ -809,7 +814,6 @@ nav .toggle-btn {
     margin-left: 50px;
     cursor: pointer;
 }
-
 #middle-svg {
     margin-left: 9px;
     margin-right: 9px;
@@ -1279,3 +1283,61 @@ nav .toggle-btn {
         margin-left: 26%;
     }
 }
+
+
+
+
+
+
+
+
+
+ #tabs ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    margin-top: 3rem;
+    justify-content: center;
+}
+.tab-link.active {
+    border-bottom: 4px solid  #915C5D; 
+  }
+#tabs ul li a{
+    text-decoration: none;
+    color: #8c8b8b;
+    padding: 0rem 1rem;
+}
+.tab-content {
+    display: none;
+}
+.tab-content .img{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.active {
+    display: block;
+}
+@media screen and (max-width:1000px) {
+    .tab-content .img{
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        gap: 0.5rem;
+    }  
+}
+@media screen and (max-width:700px) {
+    .tab-content .img{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1.7rem;
+    }  
+}
+@media screen and (max-width:500px) {
+    .tab-content .img{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1.7rem;
+    }  
+} 
